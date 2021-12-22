@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+ <h1>
+ {{ request.user }}
+ </h1>
+    <form action={%  url "customer_profile.html"%} method="post">
+     {% csrf_token %}
+    {{ form }}
+    <button>Save</button>
+    </form>
+{% endblock %}
+
+

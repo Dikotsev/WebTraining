@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+        <h1>
+    Add your property
+       </h1>
+{% block form %}
+         <form method="POST">
+             {% csrf_token %}
+             <div class="form">
+                  <input type ="submit" class = "btn btn-primary" value="Submit">
+                  <lable for="id_name">Name</lable>
+                  {{ form.name }}
+             </div>
+             <div class="form">
+                  <lable for="id_description">Description</lable>
+                  {{ form.description }}
+             </div>
+             <div class="form">
+                  <lable for="id_price">Price</lable>
+                  {{ form.price }}
+             </div>
+             <div class="form">
+                  <lable for="id_image">Image</lable>
+                  {{ form.image }}
+             </div>
+         </form>
+
+{% endblock %}
+{% endblock %}

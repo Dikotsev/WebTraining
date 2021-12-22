@@ -1,0 +1,22 @@
+{% load static %}
+{% block navigation %}
+<nav>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <div class="topnav">
+        <a class="form" href='index.html'>Home</a><a>|</a>
+        <div class="btn-info">
+            {% if request.user.is_autenticated %}
+                <p>Hello <a href {% url 'customer_profile' %}>{{ request.user }}</a></p>
+                <a class="form" href="{% url 'sign out' %}">Sign out </a>
+            {% else %}
+                <a class="form" href="{% url 'sign in' %}">Sign in </a>
+                <a class="form" href="{% url 'sign in' %}">Sign in </a>
+            {% endif %}
+        </div>
+
+        <a class="form" href="show_properties.html">Properties</a><a>|</a>
+        <a class="form" href="customer_profile.html">Profile</a><a>|</a>
+        <a class="form" href="update_profile.html">Update</a><a>|</a>
+    </div>
+</nav>
+{% endblock %}

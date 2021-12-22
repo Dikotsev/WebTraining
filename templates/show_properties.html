@@ -1,0 +1,28 @@
+{%extends shared.base.html  %}
+
+{% block content %}
+<body>
+{% block navigation %}
+    {% include 'navigation.html' %}
+{% endblock %}
+<div class="List">
+    {% for property in Properties %}
+        <form enctype="multipart/form-data" method="POST">
+        <h2>
+            {{ property.name }}
+        </h2>
+        <ul>
+            {{ property.description }}
+        </ul>
+        <ul>
+            {{ property.price }}
+        </ul>
+        <a>
+            {{ property.as_p }}
+        </a>
+        </form>
+
+    {% endfor %}
+</div>
+</body>
+{% endblock %}

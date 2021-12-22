@@ -1,0 +1,34 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<body>
+{% block navigation %}
+    {% include 'navigation.html' %}
+{% endblock %}
+<form  action="index.html" method="POST">
+    {%csrf_token %}
+    {{ form }}
+    <button>Create</button>
+</form>
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <li>Add your image</li>
+    {{ image.as_p}}
+    <input type="submit">
+</form>
+<ul class="List">
+
+{% for p in properties %}
+    <li>
+    {{ p.name }}
+    </li>
+    <li>
+    {{ p.description }}
+    </li>
+    <li>
+    {{ p.image }}
+    </li>
+{% endfor %}
+</ul>
+    </body>
+{% endblock %}
